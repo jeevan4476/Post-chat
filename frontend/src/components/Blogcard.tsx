@@ -1,4 +1,3 @@
-import { Appbar } from "./Appbar";
 
 interface BlogCardProps{
     Author : string,
