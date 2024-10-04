@@ -7,7 +7,9 @@
   "dependencies": {
     "@prisma/client": "^5.18.0",
     "@prisma/extension-accelerate": "^1.1.0",
+    "@types/axios": "^0.14.0",
     "@zacks_69/common-app": "^1.0.0",
+    "axios": "^1.7.7",
     "hono": "^4.5.8",
     "prisma": "^5.18.0"
   },
