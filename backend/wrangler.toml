@@ -1,7 +1,7 @@
 name = "backend"
 compatibility_date = "2024-08-24"
 [vars]
-DATABASE_URL="postgresql://jeevanr2431:0hH1BfcAqbOo@ep-calm-moon-11871492.us-east-2.aws.neon.tech/adminnn?sslmode=require"
+DATABASE_URL=""
 JWT_SECRET = "mysecretpassword"
 
 # [vars]
