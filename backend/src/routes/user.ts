@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client/edge'
 import { withAccelerate } from '@prisma/extension-accelerate'
 import { sign } from 'hono/jwt'
 import { signinInput, signupInput } from '@zacks_69/common-app'
-
+import bcryptjs from 'bcryptjs'
 
 export const user = new Hono<{
     Bindings:{
@@ -26,18 +26,19 @@ user.post("/signup",async (c)=>{
   }
   
 	try {
+    const salt = await bcryptjs.genSalt(10);
+    let hashedPassword = await bcryptjs.hash(body.password, salt);
 		const user = await prisma.user.create({
 			data: {
 				email: body.email ,
-				password: body.password
+				password: hashedPassword,
 			}
 		});
     const jwt = await sign({id:user.id},c.env.JWT_SECRET);
     return c.text(jwt);
 	} catch(e) {
-		 c.status(403)
-     return c.json({error:"error while signing up"});
-
+	c.status(403)
+  return c.json({error:"error while signing up"});
 	}
 })
 
@@ -62,6 +63,11 @@ user.post("/signin",async (c)=>{
         c.status(411);
         return c.json({
           error:"user not found"
+        })
+      }else if(!await bcryptjs.compare(body.password,user.password)){
+        c.status(411);
+        return c.json({
+          error:"password not matched"
         })
       }
       const jwt = await sign({ id: user.id }, c.env.JWT_SECRET);

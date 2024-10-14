@@ -3,12 +3,13 @@ import { Link,  useNavigate } from "react-router-dom"
 import { SignupType,SigninType } from "@zacks_69/common-app"
 import axios from "axios"
 import {BACKEND_URL} from "../config"
- interface LabelinputType{
+
+interface LabelinputType{
     label: string,
     placeholder : string,
     onChange:(e:ChangeEvent<HTMLInputElement>)=> void,
     type?:string
- }
+}
 export const Auth = ({type}:{type:"signup"| "signin"})=>{
     const Navigate = useNavigate();
     type variableType = SignupType | SigninType
@@ -66,7 +67,7 @@ export const Auth = ({type}:{type:"signup"| "signin"})=>{
                     setpostName(c=>({
                         ...c,
                         password:e.target.value
-                    }))
+                    })) 
                 }}/>
                 <button onClick={Sendrequest} type="button" className="w-full mt-8 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">{type === "signup" ?"Sign up":"Sign in"} </button>
 
