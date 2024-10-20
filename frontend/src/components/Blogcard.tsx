@@ -36,12 +36,12 @@ export const Blogcard  = ({
                     </div>
                 <div className="text-xl font-semibold pt-2">
                 {title}
-             </div>
+            </div>
     <div className="text-md font-thin">
         {content.slice(0,100)+"..."}
     </div>
     <div className="text-slate-400 text-sm font-thin pt-4">
-       {` ${Math.ceil(content.length/100)} minute(s) read `}
+        {` ${Math.ceil(content.length/100)} minute(s) read `}
     </div>
     </div>
     </div>
