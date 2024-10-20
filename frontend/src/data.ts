@@ -14,7 +14,7 @@ export const nav: Com[] = [
   },
   {
       title: "Write",
-      path: "/",
+      path: "/blogs",
   },
 ];
 
