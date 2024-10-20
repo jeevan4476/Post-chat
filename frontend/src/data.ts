@@ -1,9 +1,9 @@
-interface Nav {
+interface Com {
   readonly title: string;
   path: string;
 }
 
-export const nav: Nav[] = [
+export const nav: Com[] = [
   {
       title: "Our story",
       path: "/",
@@ -18,7 +18,7 @@ export const nav: Nav[] = [
   },
 ];
 
-export const Bot: Nav[] = [
+export const Bot: Com[] = [
   {
       title: "Help",
       path: "/",
